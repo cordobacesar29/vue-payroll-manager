@@ -1,30 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <template v-if="user">
+    <router-view/>
+  </template>
+  <div v-if="!user && user !== undefined">
+    <p>login</p>
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import {onMounted, computed} from "vue"
+  import {useStore} from "vuex"
+  import {auth} from "./utils/firebase"
 
-nav {
-  padding: 30px;
+  export default {
+    name: "App",
+    setup() {
+      const store = useStore()
+      const user = computed(()=>store.state.user)
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+      onMounted(()=> {
+        auth.onAuthStateChanged((user)=>{
+          store.commit("setUser", user)
+        })
+      })
 
-    &.router-link-exact-active {
-      color: #42b983;
+      return {
+        user
+      }
     }
   }
-}
+</script>
+
+<style lang="scss">
 </style>

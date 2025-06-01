@@ -1,13 +1,16 @@
 <template>
-  <h1>Payroll</h1>
+  <BasicLayout>
+    <h1>Payroll</h1>
+  </BasicLayout>
 </template>
 
 <script>
-export default {
+import BasicLayout from "@/layouts/BasicLayout.vue";
 
-}
+export default {
+  name: "Payrolls",
+  components: { BasicLayout },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

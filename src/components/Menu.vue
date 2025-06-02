@@ -10,9 +10,11 @@
       </router-link>
 
       <div class="menu right">
-        <router-link class="item" to="/"> Hola, Cesar </router-link>
+        <router-link class="item" to="/account">
+          Hola, {{ user.displayName ?? user.email }}
+        </router-link>
 
-        <span class="ui item logout">
+        <span class="ui item logout" @click="logout">
           <i class="sign-out icon" />
         </span>
       </div>
@@ -21,7 +23,20 @@
 </template>
 
 <script>
-export default {};
+import { auth } from "../utils/firebase";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
+export default {
+  name: "Menu",
+  setup() {
+    const store = useStore();
+    const user = computed(() => store.state.user);
+
+    const logout = () => auth.signOut();
+    return { user, logout };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

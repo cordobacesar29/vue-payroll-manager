@@ -5,6 +5,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile
 } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
@@ -31,4 +32,5 @@ export {
   storage,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile
 };

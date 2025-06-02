@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import {auth} from "../utils/firebase"
+import { auth } from "../utils/firebase";
 export default createStore({
   state: {
     user: undefined,
@@ -11,11 +11,11 @@ export default createStore({
     },
   },
   actions: {
-    reloadUserName({commit}) {
-      auth.onAuthStateChanged((user)=> {
-        commit("setUser", {...user})
-      })
-    }
+    reloadUserName({ commit }) {
+      auth.onAuthStateChanged((user) => {
+        commit("setUser", { ...user });
+      });
+    },
   },
   modules: {},
 });

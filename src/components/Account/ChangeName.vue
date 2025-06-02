@@ -40,11 +40,11 @@ export default {
 
         try {
           await updateProfile(auth.currentUser, {
-            displayName: name.value
-          })
-          store.dispatch("reloadUserName")
+            displayName: name.value,
+          });
+          store.dispatch("reloadUserName");
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
       } catch (err) {
         err.inner.forEach((error) => {
@@ -58,7 +58,7 @@ export default {
       name,
       onChangeName,
       formError,
-      loading
+      loading,
     };
   },
 };

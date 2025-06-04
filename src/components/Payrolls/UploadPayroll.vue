@@ -54,7 +54,10 @@ import {
 
 export default {
   name: "UploadPayroll",
-  setup() {
+  props: {
+    getPayrolls: Function,
+  },
+  setup(props) {
     let showForm = ref(false);
     let file = ref(null);
     let date = ref(null);
@@ -95,6 +98,7 @@ export default {
             date: new Date(date.value),
             dateString: date.value,
           });
+          props.getPayrolls();
         } catch (error) {
           console.log(error);
         }

@@ -7,6 +7,9 @@ import {
   getDoc,
   doc,
   getDocs,
+  query,
+  orderBy,
+  deleteDoc
 } from "firebase/firestore";
 import {
   getAuth,
@@ -60,4 +63,7 @@ export {
   addDoc,
   getDocs,
   doc,
+  query,
+  orderBy,
+  deleteDoc
 };

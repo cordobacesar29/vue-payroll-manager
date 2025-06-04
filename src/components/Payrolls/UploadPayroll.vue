@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <button class="ui button positive">Subir</button>
+      <button class="ui button positive" :class="{ loading }">Subir</button>
 
       <p v-if="error">{{ error }}</p>
     </form>
@@ -98,6 +98,14 @@ export default {
         } catch (error) {
           console.log(error);
         }
+        loading.value = false;
+        file.value = null;
+        date.value = null;
+        showForm.value = false;
+        error.value = null;
+        document.getElementById("file").value = "";
+      } else {
+        error.value = "Sube un archivo";
       }
     };
 

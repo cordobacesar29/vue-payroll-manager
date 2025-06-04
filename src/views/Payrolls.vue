@@ -1,16 +1,25 @@
 <template>
   <BasicLayout>
-    <h1>Payroll</h1>
+    <div class="payrolls">
+      <h1>Payroll</h1>
+      <UploadPayroll />
+    </div>
   </BasicLayout>
 </template>
 
 <script>
 import BasicLayout from "@/layouts/BasicLayout.vue";
+import UploadPayroll from "@/components/Payrolls/UploadPayroll.vue";
 
 export default {
   name: "Payrolls",
-  components: { BasicLayout },
+  components: { BasicLayout, UploadPayroll },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+  .payrolls {
+    margin: 50px 0;
+    text-align: center;
+  }
+</style>

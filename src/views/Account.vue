@@ -8,16 +8,20 @@
           Cambiar nombre
           <span v-if="user.displayName">{{ user.displayName }}</span>
         </p>
-
         <ChangeName />
       </div>
+
       <div class="account__section">
         <p class="title">
           Cambiar email
           <span>{{ user.email }}</span>
         </p>
-
         <ChangeEmail />
+      </div>
+
+      <div class="account__section">
+        <p class="title">Cambiar contraseña</p>
+        <ChangePassword />
       </div>
     </BasicLayout>
   </div>
@@ -29,13 +33,15 @@ import { useStore } from "vuex";
 import BasicLayout from "@/layouts/BasicLayout.vue";
 import ChangeName from "@/components/Account/ChangeName.vue";
 import ChangeEmail from "@/components/Account/ChangeEmail.vue";
+import ChangePassword from "@/components/Account/ChangePassword.vue";
 
 export default {
   name: "Account",
   components: {
     BasicLayout,
     ChangeName,
-    ChangeEmail
+    ChangeEmail,
+    ChangePassword,
   },
   setup() {
     const store = useStore();

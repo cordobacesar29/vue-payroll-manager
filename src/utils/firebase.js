@@ -28,14 +28,21 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 
+const apiKey = process.env.VUE_APP_FIREBASE_API_KEY
+const authDomain = process.env.VUE_APP_FIREBASE_AUTH_DOMAIN
+const projectId = process.env.VUE_APP_FIREBASE_PROYECT_ID
+const storageBucket = process.env.VUE_APP_FIREBASE_STORAGE_BUCKETS
+const messagingSenderId = process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID
+const appId = process.env.VUE_APP_FIREBASE_API_ID
+// console.log(url)
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCjpkAi_I6V_fBVsMiIvAasusrx8_lRVaw",
-  authDomain: "payroll-manager-45518.firebaseapp.com",
-  projectId: "payroll-manager-45518",
-  storageBucket: "payroll-manager-45518.firebasestorage.app",
-  messagingSenderId: "433067478630",
-  appId: "1:433067478630:web:fca13726235140d36f27a7",
+  apiKey,
+  authDomain,
+  projectId,
+  storageBucket,
+  messagingSenderId,
+  appId,
 };
 
 // Initialize Firebase
